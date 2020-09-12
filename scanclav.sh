@@ -22,7 +22,7 @@ sudo sleep 1
 echo ""
 
 # Creating directories if don't exist
-mkdir -p ~/documents/sysinfo/clamscan/
+mkdir -p /home/$USER/clamav/
 
 # Updating virus definitions
 
@@ -84,15 +84,15 @@ then
 
 if [ "$dirscan" = / ]
 then
-        sudo nice -n 15 clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / -l ~/documents/sysinfo/clamscan/log
+        sudo nice -n 15 clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / -l /home/$USER/clamav/log
         exit
 elif [ "$dirscan" = h ]
 then
-                sudo nice -n 15 clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ ~/ -l ~/documents/sysinfo/clamscan/log
+                sudo nice -n 15 clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ ~/ -l /home/$USER/clamav/log
                 exit
         elif [ "$dirscan" = p ]
         then
-                        sudo nice -n 15 clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ . -l ~/documents/sysinfo/clamscan/log
+                        sudo nice -n 15 clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ . -l /home/$USER/clamav/log
                 elif [ "$dirscan" = x ]
                 then
                         exit
@@ -101,7 +101,7 @@ then
 			echo "Directory does not exist."
 			exit
 		else
-                        sudo nice -n 15 clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ "$dirscan" -l ~/documents/sysinfo/clamscan/log
+                        sudo nice -n 15 clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ "$dirscan" -l /home/$USER/clamav/log
                         exit
                 fi
                 fi
@@ -112,15 +112,15 @@ else
 
 if [ "$dirscan" = / ]
 then
-        sudo clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / -l ~/documents/sysinfo/clamscan/log
+        sudo clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / -l /home/$USER/clamav/log
         exit
 elif [ "$dirscan" = h ]
 then
-                sudo clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ ~/ -l ~/documents/sysinfo/clamscan/log
+                sudo clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ ~/ -l /home/$USER/clamav/log
                 exit
         elif [ "$dirscan" = p ]
         then
-                        sudo clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ . -l ~/documents/sysinfo/clamscan/log
+                        sudo clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ . -l /home/$USER/clamav/log
                 elif [ "$dirscan" = x ]
                 then
                         exit
@@ -129,7 +129,7 @@ then
 			echo "Directory does not exist."
 			exit
 		else
-                        sudo clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ "$dirscan" -l ~/documents/sysinfo/clamscan/log
+                        sudo clamscan --recursive=yes --infected --move=/home/"$USER"/clamav/quarantine/ "$dirscan" -l /home/$USER/clamav/log
                         exit
                 fi
         fi
@@ -147,15 +147,15 @@ then
 
 if [ "$dirscan" = / ]
 then
-        sudo nice -n 15 clamscan --recursive=yes --infected --remove --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / -l ~/documents/sysinfo/clamscan/log
+        sudo nice -n 15 clamscan --recursive=yes --infected --remove --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / -l /home/$USER/clamav/log
         exit
 elif [ "$dirscan" = h ]
 then
-                sudo nice -n 15 clamscan --recursive=yes --infected --remove ~/ -l ~/documents/sysinfo/clamscan/log
+                sudo nice -n 15 clamscan --recursive=yes --infected --remove ~/ -l /home/$USER/clamav/log
                 exit
         elif [ "$dirscan" = p ]
         then
-                        sudo nice -n 15 clamscan --recursive=yes --infected --remove . -l ~/documents/sysinfo/clamscan/log
+                        sudo nice -n 15 clamscan --recursive=yes --infected --remove . -l /home/$USER/clamav/log
                 elif [ "$dirscan" = x ]
                 then
                         exit
@@ -164,7 +164,7 @@ then
 			echo "Directory does not exist."
 			exit
 		else
-                        sudo nice -n 15 clamscan --recursive=yes --infected --remove "$dirscan" -l ~/documents/sysinfo/clamscan/log
+                        sudo nice -n 15 clamscan --recursive=yes --infected --remove "$dirscan" -l /home/$USER/clamav/log
                         exit
                 fi
         fi
@@ -175,15 +175,15 @@ else
 
 if [ "$dirscan" = / ]
 then
-        sudo clamscan --recursive=yes --infected --remove --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / -l ~/documents/sysinfo/clamscan/log
+        sudo clamscan --recursive=yes --infected --remove --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / -l /home/$USER/clamav/log
         exit
 elif [ "$dirscan" = h ]
 then
-                sudo clamscan --recursive=yes --infected --remove ~/ -l ~/documents/sysinfo/clamscan/log
+                sudo clamscan --recursive=yes --infected --remove ~/ -l /home/$USER/clamav/log
                 exit
         elif [ "$dirscan" = p ]
         then
-                        sudo clamscan --recursive=yes --infected --remove . -l ~/documents/sysinfo/clamscan/log
+                        sudo clamscan --recursive=yes --infected --remove . -l /home/$USER/clamav/log
                 elif [ "$dirscan" = x ]
                 then
                         exit
@@ -192,7 +192,7 @@ then
 			echo "Directory does not exist."
 			exit
 		else
-                        sudo clamscan --recursive=yes --infected --remove "$dirscan" -l ~/documents/sysinfo/clamscan/log
+                        sudo clamscan --recursive=yes --infected --remove "$dirscan" -l /home/$USER/clamav/log
                         exit
                 fi
         fi
@@ -209,15 +209,15 @@ then
 
 if [ "$dirscan" = / ]
 then
-        sudo nice -n 15 clamscan --recursive=yes --infected --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / -l ~/documents/sysinfo/clamscan/log
+        sudo nice -n 15 clamscan --recursive=yes --infected --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / -l /home/$USER/clamav/log
         exit
 elif [ "$dirscan" = h ]
 then
-                sudo nice -n 15 clamscan --recursive=yes --infected ~/ -l ~/documents/sysinfo/clamscan/log
+                sudo nice -n 15 clamscan --recursive=yes --infected ~/ -l /home/$USER/clamav/log
                 exit
         elif [ "$dirscan" = p ]
         then
-                        sudo nice -n 15 clamscan --recursive=yes --infected . -l ~/documents/sysinfo/clamscan/log
+                        sudo nice -n 15 clamscan --recursive=yes --infected . -l /home/$USER/clamav/log
                 elif [ "$dirscan" = x ]
                 then
                         exit
@@ -226,7 +226,7 @@ then
 			echo "Directory does not exist."
 			exit
 		else
-                        sudo nice -n 15 clamscan --recursive=yes --infected "$dirscan" -l ~/documents/sysinfo/clamscan/log
+                        sudo nice -n 15 clamscan --recursive=yes --infected "$dirscan" -l /home/$USER/clamav/log
                         exit
                 fi
         fi
@@ -237,15 +237,15 @@ else
 
 if [ "$dirscan" = / ]
 then
-        sudo clamscan --recursive=yes --infected --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / -l ~/documents/sysinfo/clamscan/log
+        sudo clamscan --recursive=yes --infected --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / -l /home/$USER/clamav/log
         exit
 elif [ "$dirscan" = h ]
 then
-                sudo clamscan --recursive=yes --infected ~/ -l ~/documents/sysinfo/clamscan/log
+                sudo clamscan --recursive=yes --infected ~/ -l /home/$USER/clamav/log
                 exit
         elif [ "$dirscan" = p ]
         then
-                        sudo clamscan --recursive=yes --infected . -l ~/documents/sysinfo/clamscan/log
+                        sudo clamscan --recursive=yes --infected . -l /home/$USER/clamav/log
                 elif [ "$dirscan" = x ]
                 then
                         exit
@@ -254,7 +254,7 @@ then
 			echo "Directory does not exist."
 			exit
 		else
-                        sudo clamscan --recursive=yes --infected "$dirscan" -l ~/documents/sysinfo/clamscan/log
+                        sudo clamscan --recursive=yes --infected "$dirscan" -l /home/$USER/clamav/log
                         exit
                 fi
         fi
